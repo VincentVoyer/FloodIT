@@ -52,11 +52,9 @@ public class FabriqueStructure {
 	
 	private static void initNeighbour(Map<Point,IBox> struct,int width,int height)
 	{
-		width -= 1;
-		height -= 1;
-		for(int i = 0; i <= width ; i++ )
+		for(int i = 0; i < width ; i++ )
 		{
-			for(int j = 0; j <= height ; j ++)
+			for(int j = 0; j < height ; j ++)
 			{
 				IBox b = struct.get(new Point(i,j));
 				if(i == 0 && j == 0)
