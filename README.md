@@ -1,10 +1,13 @@
 FloodIT
 =======
 
-Game Flood It
+Flood It est un jeu de stratégie dans lequel vous devez d'inonder l'ensemble plateau de jeu avec une couleur en un nombre de coup inférieur au nombre d'étapes autorisées.
 
-version :
-Java PC -> version 1.0
-C# -> unrelease.
-Objective C -> unrelease.
-Java Android -> unrelease.
+
+TODO List
+=======
+
+- [ ] Moteur du jeu
+- [ ] Gérer la relance du jeu
+- [ ] Gérer les différentes tailles de plateau
+- [ ] Ajouter un système de niveau
