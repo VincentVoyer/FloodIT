@@ -32,7 +32,7 @@ public class GameManager extends Observable implements Observer {
 	private GameManager()
 	{
 		maxRound = 25;
-		currentRound = 0;
+		currentRound = 1;
 		mBoard = new Board(this);
 	}
 	
@@ -61,10 +61,15 @@ public class GameManager extends Observable implements Observer {
 			currentRound ++;
 			informer(new Integer(currentRound));
 		}
-		if(maxRound == currentRound)
-			informer("ENDLOSE");
-		else if(nbCaseChanged == (getHeight() * getWidth()))
+		if (mBoard.getBoxPainted() == mBoard.getContent().keySet().size())
+		{
 			informer("ENDWIN");
+		}
+		else if(maxRound == currentRound)
+		{			
+			informer("ENDLOSE");
+		}
+ 
 	}
 	
 	public Map<Point,IBox> getContent()

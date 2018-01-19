@@ -122,6 +122,18 @@ public class Board {
 		return start.changeColor(newColor, oldColor);
 	}
 	
+	public int getBoxPainted(){
+		int total = 0;
+		
+		for (Point p : content.keySet())
+		{
+			Box b = (Box) content.get(p);
+			total += b.getBoxPaintIn(start.getColor());
+		}
+		
+		return total;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

@@ -96,6 +96,19 @@ public class Box extends Observable implements IBox {
 	}
 	
 	/**
+	 * @param color to compare.
+	 * @return 1 if current color equals color give in parameter.
+	 */
+	public int getBoxPaintIn(String color){
+		if (getColor().equals(color)) 
+		{
+			return 1;
+		}
+		
+		return 0;
+	}
+	
+	/**
 	 * Inform observers.
 	 * @param info
 	 */
