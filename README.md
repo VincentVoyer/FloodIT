@@ -7,7 +7,7 @@ Flood It est un jeu de stratégie dans lequel vous devez d'inonder l'ensemble pl
 TODO List
 =======
 
-- [ ] Moteur du jeu
+- [*] Moteur du jeu
 - [ ] Gérer la relance du jeu
 - [ ] Gérer les différentes tailles de plateau
 - [ ] Ajouter un système de niveau
