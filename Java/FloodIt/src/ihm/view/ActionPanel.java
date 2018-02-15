@@ -30,8 +30,24 @@ public class ActionPanel extends JPanel implements Observer{
 
 	private List<JButton> buttons = new ArrayList<>();
 	
+	private UserControl ctrl;
+	
 	public ActionPanel(UserControl ctrl)
 	{
+		setCtrl(ctrl);
+		initPanel();
+	}
+	
+	public UserControl getCtrl() {
+		return ctrl;
+	}
+
+	private void setCtrl(UserControl ctrl) {
+		this.ctrl = ctrl;
+		ctrl.getGm().addObserver(this);
+	}
+
+	private void initPanel() {
 		setLayout(new GridLayout(2,3));
 		for(String color : Colors.getInstance().getColors())
 		{
@@ -54,10 +70,17 @@ public class ActionPanel extends JPanel implements Observer{
 	public void update(Observable o, Object arg) {
 		if(arg instanceof String)
 		{
-			if(((String) arg).contains("END"))
+			String action = (String) arg;
+			
+			if (action.contains("END"))
 			{
 				for(JButton btn : buttons)
 					btn.setEnabled(false);
+			}
+			else if (action.equals(UserControl.NEW_GAME))
+			{
+				removeAll();
+				initPanel();
 			}
 		}
 		

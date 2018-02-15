@@ -3,6 +3,7 @@
  */
 package ihm.view;
 
+import ihm.controler.UserControl;
 import ihm.model.GameModel;
 
 import java.util.Observable;
@@ -26,11 +27,35 @@ public class BoxPanel extends JPanel implements Observer {
 
 	private IBox myBox;
 	
+	private GameModel gm;
+	
 	public BoxPanel(GameModel gm, IBox b)
 	{
-		gm.addObserver(this);
-		myBox = b;
-		changeColor(b);
+		setGm(gm);
+		setMyBox(b);
+		
+		initPanel();
+	}
+
+	private void initPanel() {
+		changeColor(myBox);
+	}
+
+	public IBox getMyBox() {
+		return myBox;
+	}
+
+	private void setMyBox(IBox myBox) {
+		this.myBox = myBox;
+	}
+
+	public GameModel getGm() {
+		return gm;
+	}
+
+	private void setGm(GameModel gm) {
+		this.gm = gm;
+		gm.addObserver(this);	
 	}
 
 	/* (non-Javadoc)
@@ -43,6 +68,15 @@ public class BoxPanel extends JPanel implements Observer {
 		{
 			IBox box = (IBox)arg;
 			changeColor(box);
+		}
+		else if (arg instanceof String)
+		{
+			String action = (String) arg;
+			if (action.equals(UserControl.NEW_GAME))
+			{				
+				removeAll();
+				initPanel();
+			}
 		}
 	}
 

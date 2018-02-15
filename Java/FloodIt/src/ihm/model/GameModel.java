@@ -15,7 +15,9 @@ import core.Point;
  * @author Vincent
  * @date 27 janv. 2014
  */
-public class GameModel extends Observable implements Observer {
+public class GameModel 
+	extends Observable 
+	implements Observer {
 	
 	private GameManager gameManager;
 	
@@ -43,6 +45,11 @@ public class GameModel extends Observable implements Observer {
 	public void changeColor(String color)
 	{
 		gameManager.changeColor(color);
+	}
+	
+	public void reload() 
+	{
+		gameManager.reload();
 	}
 	
 	public Map<Point,IBox> getContent()

@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import ihm.controler.UserControl;
+
 /**
  * @author Vincent
  * @date 27 janv. 2014
@@ -84,6 +86,15 @@ public class GameManager
 			informer("ENDLOSE");
 		}
  
+	}
+	
+	public void reload()
+	{
+		mBoard.unsubscribe(this);
+		maxRound = 25;
+		currentRound = 1;
+		mBoard = new Board(this);
+		informer(UserControl.NEW_GAME);
 	}
 	
 	public Map<Point,IBox> getContent()

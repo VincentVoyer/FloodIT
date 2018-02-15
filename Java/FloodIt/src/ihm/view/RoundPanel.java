@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.util.Observable;
 import java.util.Observer;
 
+import ihm.controler.UserControl;
 import ihm.model.GameModel;
 
 import javax.swing.JLabel;
@@ -27,8 +28,12 @@ public class RoundPanel extends JPanel implements Observer{
 	public RoundPanel(GameModel gm)
 	{
 		this.gm = gm;
-		setCurrentRound(gm.getCurrentRound());
 		gm.addObserver(this);
+		initPanel();
+	}
+
+	private void initPanel() {
+		setCurrentRound(gm.getCurrentRound());
 		add(new JLabel("Round : "));
 		add(currentRound);
 		add(new JLabel(" / " + gm.getMaxRound()));
@@ -50,7 +55,17 @@ public class RoundPanel extends JPanel implements Observer{
 		{
 			setCurrentRound(gm.getCurrentRound());
 			revalidate();
+		}	
+		else if (arg instanceof String)
+		{
+			String action = (String) arg;
+			if (action.equals(UserControl.NEW_GAME))
+			{
+				gm.deleteObserver(this);
+				removeAll();
+				initPanel();
+			}
 		}
-		
+			
 	}
 }

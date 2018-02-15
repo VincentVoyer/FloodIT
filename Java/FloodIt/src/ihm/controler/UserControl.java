@@ -16,6 +16,8 @@ import javax.swing.AbstractButton;
  */
 public class UserControl implements ActionListener {
 
+	public static final String NEW_GAME = "NEW_GAME";
+	
 	/**
 	 * Game model.
 	 */
@@ -43,26 +45,23 @@ public class UserControl implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		boolean newGame = false;
-		
+
 		if(arg0.getSource() instanceof AbstractButton)
 		{
 			AbstractButton button = (AbstractButton)arg0.getSource();
-			changeColor(button);			
+			if (button.getActionCommand() == NEW_GAME)
+				reload();
+			else
+				changeColor(button);			
 		}
 		
-		if (newGame = true)
-		{
-			reload();
-		}
-
 	}
 	
 	/**
 	 * Reload game.
 	 */
 	private void reload() {
-		// TODO implement game reload;
+		gm.reload();
 	}
 	
 	/**
