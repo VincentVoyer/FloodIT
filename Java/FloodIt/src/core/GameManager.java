@@ -12,7 +12,9 @@ import java.util.Observer;
  * @author Vincent
  * @date 27 janv. 2014
  */
-public class GameManager extends Observable implements Observer {
+public class GameManager 
+	extends Observable 
+	implements Observer {
 	/**
 	 * maxRound.
 	 */
@@ -23,12 +25,24 @@ public class GameManager extends Observable implements Observer {
 	 */
 	private int currentRound;
 	
+	/**
+	 * Board game
+	 */
 	private Board mBoard;
 	
+	/**
+	 * Number of changed case.
+	 */
 	private int nbCaseChanged = 0;
 	
+	/**
+	 * Instance of game manager.
+	 */
 	private static GameManager instance = null;
 	
+	/**
+	 * Default constructor.
+	 */
 	private GameManager()
 	{
 		maxRound = 25;
@@ -52,7 +66,7 @@ public class GameManager extends Observable implements Observer {
 		return currentRound;
 	}
 
-	public void chageColor(String color)
+	public void changeColor(String color)
 	{
 
 		nbCaseChanged = mBoard.change(color);

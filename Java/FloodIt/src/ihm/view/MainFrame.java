@@ -26,8 +26,17 @@ public class MainFrame extends JFrame {
 	{
 		super("Flood It");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		GameModel gm = new GameModel();
-		UserControl ctrl = new UserControl(gm);
+		generateView();
+	}
+
+	/**
+	 * Generate view.
+	 */
+	private void generateView() {
+		
+		UserControl ctrl = new UserControl();
+		GameModel gm = ctrl.getGm();
+		
 		JPanel pan = new JPanel(new BorderLayout());
 		pan.add(new RoundPanel(gm),BorderLayout.NORTH);
 		pan.add(new ActionPanel(ctrl),BorderLayout.CENTER);

@@ -40,9 +40,9 @@ public class GameModel extends Observable implements Observer {
 		return gameManager.getCurrentRound();
 	}
 
-	public void chageColor(String color)
+	public void changeColor(String color)
 	{
-		gameManager.chageColor(color);
+		gameManager.changeColor(color);
 	}
 	
 	public Map<Point,IBox> getContent()
