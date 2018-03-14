@@ -79,6 +79,7 @@ public class ActionPanel extends JPanel implements Observer{
 			}
 			else if (action.equals(UserControl.NEW_GAME))
 			{
+				ctrl.getGm().deleteObserver(this);
 				removeAll();
 				initPanel();
 			}

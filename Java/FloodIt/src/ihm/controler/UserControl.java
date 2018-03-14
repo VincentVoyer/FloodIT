@@ -91,4 +91,8 @@ public class UserControl implements ActionListener {
 		this.gm = gm;
 	}
 
+	public void refresh() {
+		gm.refresh();
+	}
+
 }

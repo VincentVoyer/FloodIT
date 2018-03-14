@@ -96,6 +96,13 @@ public class Box extends Observable implements IBox {
 	}
 	
 	/**
+	 * refresh color.
+	 */
+	public void refresh() {
+		informer(this);
+	}
+	
+	/**
 	 * @param color to compare.
 	 * @return 1 if current color equals color give in parameter.
 	 */

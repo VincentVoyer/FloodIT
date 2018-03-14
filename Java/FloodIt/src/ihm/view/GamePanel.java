@@ -61,6 +61,7 @@ public class GamePanel extends JPanel implements Observer {
 		}		
 	}
 	
+	
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		if(arg1 instanceof String)
@@ -75,6 +76,7 @@ public class GamePanel extends JPanel implements Observer {
 			}
 			else if (arg1.equals(UserControl.NEW_GAME))
 			{
+				gm.deleteObserver(this);
 				removeAll();
 				initPanel();
 			}

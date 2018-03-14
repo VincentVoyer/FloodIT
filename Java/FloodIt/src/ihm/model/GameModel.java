@@ -52,6 +52,11 @@ public class GameModel
 		gameManager.reload();
 	}
 	
+	public void refresh() 
+	{
+		gameManager.refresh();
+	}
+	
 	public Map<Point,IBox> getContent()
 	{
 		return gameManager.getContent();

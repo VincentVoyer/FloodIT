@@ -80,8 +80,7 @@ public class MainFrame
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(pan,BorderLayout.WEST);
 		getContentPane().add(new GamePanel(gm),BorderLayout.CENTER);
-		
-		
+
 	}
 	
 	/**
@@ -108,11 +107,18 @@ public class MainFrame
 			if (action == UserControl.NEW_GAME)
 			{
 				setVisible(false);
-				GameModel gm = ctrl.getGm();
-				gm.deleteObserver(this);
+				//GameModel gm = ctrl.getGm();
+				//gm.deleteObserver(this);
 				remove(pan);
 				generateGamePanel();
+				
+				//pan.revalidate();				
+				//pan.repaint();
+				//pan.doLayout();				
 				setVisible(true);
+				
+				revalidate();
+				ctrl.refresh();
 			}
 		}
 		

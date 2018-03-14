@@ -122,6 +122,15 @@ public class Board {
 		return start.changeColor(newColor, oldColor);
 	}
 	
+	public void refresh()
+	{
+		for(IBox current : content.values())
+		{
+			Box c = (Box)current;
+			c.refresh();
+		}
+	}
+	
 	public void unsubscribe(Observer obs)
 	{
 		for(IBox current : content.values())

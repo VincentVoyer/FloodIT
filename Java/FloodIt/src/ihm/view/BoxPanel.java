@@ -73,7 +73,8 @@ public class BoxPanel extends JPanel implements Observer {
 		{
 			String action = (String) arg;
 			if (action.equals(UserControl.NEW_GAME))
-			{				
+			{		
+				gm.deleteObserver(this);
 				removeAll();
 				initPanel();
 			}

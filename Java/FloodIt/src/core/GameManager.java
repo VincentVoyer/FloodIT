@@ -134,4 +134,8 @@ public class GameManager
 		notifyObservers(info);
 	}
 
+	public void refresh() {
+		mBoard.refresh();
+	}
+
 }
